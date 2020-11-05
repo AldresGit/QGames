@@ -1,5 +1,11 @@
 <template>
   <q-page class="q-pa-md">
+
+    <q-breadcrumbs>
+      <q-breadcrumbs-el icon="home" to="/" />
+      <q-breadcrumbs-el label="Informacion" icon="info" />
+    </q-breadcrumbs>
+
     <div class="row rowTitle">
         <div class="col-12">
           <h3>Información</h3>

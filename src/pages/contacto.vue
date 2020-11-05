@@ -1,5 +1,11 @@
 <template>
   <q-page class="q-pa-md">
+
+    <q-breadcrumbs>
+      <q-breadcrumbs-el icon="home" to="/" />
+      <q-breadcrumbs-el label="Contacto" icon="contact_support" />
+    </q-breadcrumbs>
+
     <div class="row rowTitle">
         <div class="col-12">
           <h3>Contacto</h3>
