@@ -46,7 +46,7 @@ export default {
   },
   methods: {
     viewGame () {
-      this.$router.push({ path: 'games/view/' + this.game.id, params: { id: this.game.id, gamepass: this.game } })
+      this.$router.push({ path: 'games/view/' + this.game.id, name: 'gamesView', params: { id: this.game.id.toString(), gamepass: this.game } })
     }
   }
 }

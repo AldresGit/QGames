@@ -40,7 +40,16 @@ export default {
       fecha: ''
     }
   },
+  props: {
+    dgenre: {
+      type: Number,
+      required: false
+    }
+  },
   created () {
+    if (this.dgenre !== null && this.dgenre !== undefined) {
+      this.genre = this.dgenre
+    }
     this.loadGenres()
   },
   watch: {

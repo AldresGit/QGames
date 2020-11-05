@@ -53,8 +53,7 @@
     <div class="row">
       <div class="col-12">
         <span v-for="genre in game.genres" :key="genre.id">
-          <q-icon name="loyalty" />
-          {{genre.name}}
+          <button class="genreButton" @click="filterGenre(genre)"><q-icon name="loyalty" /> {{genre.name}}</button>
         </span>
       </div>
     </div>
@@ -66,6 +65,12 @@
           <span v-if="index !== 0"> - </span>
           <a :href="generateUrlStore(store)" target="_blank">{{store.store.name}}</a>
         </span>
+      </div>
+    </div>
+
+    <div class="row tagsRow">
+      <div class="col-12">
+        <q-chip v-for="tag in game.tags" :key="tag.id" class="glossy">{{tag.name}}</q-chip>
       </div>
     </div>
 
@@ -93,12 +98,6 @@
       </div>
     </div>
 
-    <div class="row tagsRow">
-      <div class="col-12">
-        <q-chip v-for="tag in game.tags" :key="tag.id" class="glossy">{{tag.name}}</q-chip>
-      </div>
-    </div>
-
   </q-page>
 </template>
 
@@ -112,7 +111,7 @@ export default {
     }
   },
   async created () {
-    if (this.game === null || this.game === undefined) {
+    if (this.gamepass === null || this.gamepass === undefined) {
       await this.$axios.get('https://api.rawg.io/api/games/' + this.id).then((response) => {
         this.game = response.data
       }).catch(() => {
@@ -146,6 +145,9 @@ export default {
         result = store.url
       }
       return result
+    },
+    filterGenre (selectedGenre) {
+      this.$router.push({ name: 'gamesindex', params: { dgenre: selectedGenre.id } })
     }
   }
 }

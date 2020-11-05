@@ -63,7 +63,16 @@ export default {
     }
   },
   created () {
+    if (this.dgenre !== null && this.dgenre !== undefined) {
+      this.genre = this.dgenre
+    }
     this.loadGames()
+  },
+  props: {
+    dgenre: {
+      type: Number,
+      required: false
+    }
   },
   methods: {
     async buscar (searchString, genreId, dateString) {
